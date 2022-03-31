@@ -35,6 +35,16 @@ const sendPost = async (url, data, handler) => {
     }
 };
 
+const sendDelete = async (url, data) => {
+    const response = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+};
+
 const hideError = () => {
     document.getElementById('domoMessage').classList.add('hidden');
 };
@@ -42,5 +52,6 @@ const hideError = () => {
 module.exports = {
     handleError,
     sendPost,
+    sendDelete,
     hideError,
 };
